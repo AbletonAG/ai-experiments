@@ -32,7 +32,7 @@ def main():
 
     Settings.embed_model = HuggingFaceEmbedding(model_name="BAAI/bge-small-en-v1.5")
     index = create_index()
-    retriever = index.as_retriever()
+    retriever = index.as_retriever(similarity_top_k=5)
 
     while True:
         nodes = retriever.retrieve(input("> "))
